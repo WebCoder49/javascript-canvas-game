@@ -7,7 +7,252 @@ function run(){
         "##",
         "#"].join("\n");
     console.log(map);*/
+    
+    const shapes = [
+        // lines
+        // -----
+        {
+            // long line
 
+            map: [
+                "  #",
+                "  #",
+                "  #",
+                "  #",
+                "  #",
+            ].join("\n"),
+            size: 5,
+            color: '#d8eb34',
+        },
+        {
+            // medium line
+
+            map: [
+                " #",
+                " #",
+                " #",
+                " #",
+            ].join("\n"),
+            size: 4,
+            color: '#9ceb34',
+        },
+        {
+            // short line
+
+            map: [
+                " #",
+                " #",
+                " #",
+            ].join("\n"),
+            size: 3,
+            color: '#66ff00',
+        },
+        {
+            // 2-line
+
+            map: [
+                "#",
+                "#",
+            ].join("\n"),
+            size: 2,
+            color: '#00ff80',
+        },
+        {
+            // single block
+
+            map: [
+                "#",
+            ].join("\n"),
+            size: 1,
+            color: '#1fffce',
+        },
+        // letters
+        // -------
+        {
+            // C shape
+
+            map: [
+                "##",
+                "#",
+                "##",
+            ].join("\n"),
+            size: 3,
+            color: '#70a2ff',
+        },
+        {
+            // L shape
+
+            map: [
+                "#",
+                "#",
+                "##",
+            ].join("\n"),
+            size: 3,
+            color: '#696eff',
+        },
+        {
+            // U shape
+
+            map: [
+                "# #",
+                "# #",
+                "###",
+            ].join("\n"),
+            size: 3,
+            color: '#8c66ff',
+        },
+        {
+            // O shape
+
+            map: [
+                "###",
+                "# #",
+                "###",
+            ].join("\n"),
+            size: 3,
+            color: '#e866ff',
+        },
+        {
+            // H shape
+
+            map: [
+                "# #",
+                "###",
+                "# #",
+            ].join("\n"),
+            size: 3,
+            color: '#ff66bf',
+        },
+        {
+            // X shape
+
+            map: [
+                "# #",
+                " #",
+                "# #",
+            ].join("\n"),
+            size: 3,
+            color: '#ff5778',
+        },
+        // other
+        // -----
+        {
+            // + shape
+
+            map: [
+                " #",
+                "###",
+                " #",
+            ].join("\n"),
+            size: 3,
+            color: '#ff5757',
+        },
+        // triangles
+        // ---------
+        {
+            // 2-triangle
+
+            map: [
+                "##",
+                "#"
+            ].join("\n"),
+            size: 2,
+            color: '#ff8f57',
+        },
+        {
+            // 3-triangle
+
+            map: [
+                "###",
+                "##",
+                "#"
+            ].join("\n"),
+            size: 3,
+            color: '#ffb957',
+        },
+        {
+            // 4-triangle
+
+            map: [
+                "####",
+                "###",
+                "##",
+                "#"
+            ].join("\n"),
+            size: 4,
+            color: '#fff157',
+        },
+        // rectangles
+        // ----------
+        {
+            // 2x2
+
+            map: [
+                "##",
+                "##"
+            ].join("\n"),
+            size: 2,
+            color: '#e5ff4f',
+        },
+        {
+            // 2x3
+
+            map: [
+                "##",
+                "##",
+                "##"
+            ].join("\n"),
+            size: 3,
+            color: '#b1ff4a',
+        },
+        {
+            // 2x4
+
+            map: [
+                " ##",
+                " ##",
+                " ##",
+                " ##"
+            ].join("\n"),
+            size: 4,
+            color: '#b0ff47',
+        },
+        {
+            // 3x3
+
+            map: [
+                "###",
+                "###",
+                "###"
+            ].join("\n"),
+            size: 3,
+            color: '#82ff4d',
+        },
+        {
+            // 3x4
+
+            map: [
+                "###",
+                "###",
+                "###",
+                "###"
+            ].join("\n"),
+            size: 4,
+            color: '#47ff47',
+        },
+        {
+            // 4x4
+
+            map: [
+                "####",
+                "####",
+                "####",
+                "####"
+            ].join("\n"),
+            size: 4,
+            color: '#47ff72',
+        },
+    ];
 	const shapeMaps = [
 		[
 			"#",
@@ -45,7 +290,7 @@ function run(){
 			""
 		].join("\n")
 	];
-	const shapeSizes = [4, 3, 3, 2, 3, 3, 3];
+	const shapeSizes = [, 3, 3, 2, 3, 3, 3];
 
 	const shapeColours = ['cyan', 'blue', 'orange', 'yellow', 'green', 'magenta', 'red']
 
@@ -66,7 +311,8 @@ function run(){
             ctx.font = "20px Audiowide";
             ctx.textAlign = "right";
             ctx.fillText("Seconds: " + Math.trunc(game.secondCount), game.c.width - 10, 60, game.c.width/2 - 20);
-			ctx.fillText("Score :" + game.score, game.c.width - 10, 90, game.c.width/2 - 20)
+            ctx.fillStyle = "gold";
+			ctx.fillText("Score: " + game.score, game.c.width - 10, 90, game.c.width/2 - 20)
 		
 			//carry out collision and append newmap to current map or append map to body and create new falling block
 
@@ -128,10 +374,11 @@ function run(){
 		},
 
 		newBlock: function(){
-			let index = Math.floor(Math.random() * (shapeMaps.length))
-			let map = shapeMaps[index];
-			let size = shapeSizes[index];
-			let color = shapeColours[index];
+			let index = Math.floor(Math.random() * (shapes.length));
+            let shape = shapes[index]; // get shape object
+			let map = shape.map;
+			let size = shape.size;
+			let color = shape.color;
 			let x = Math.floor(Math.random() * (7));
 			let y = -size
 			blocks.fallingBlock.current = new blocks.fallingBlock.New(x, y, size, map, color);
