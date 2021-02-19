@@ -396,6 +396,8 @@ function run(){
                 blocks.fallingBlock.current.move(true); //move the block to the left
             } else if (e.keyCode === 68) { //d pressed
                 blocks.fallingBlock.current.move(false); //move the block to the right
+            } else if (e.keyCode === 83) { // s pressed
+                game.dropToBottom(); //drops the block to the bottom
             }
         },
 		clearRow: function(map){ //multiply points by 2 if a row is fully filled
@@ -416,7 +418,14 @@ function run(){
 				}
 			}
 
-		}
+		},
+        dropToBottom: function() { //drops the block to the floor through increasing the fps
+            if (dropWaitTime == 500) {
+                clearInterval(drop);
+                dropWaitTime = 50; //decreases the interval to make more fps
+                drop = setInterval(game.fall, dropWaitTime)
+            }
+        }
     };
 	window.addEventListener("keydown", game.keyPressed);
 
@@ -555,6 +564,9 @@ function run(){
             }
         },
     	addToBody: function(block) { // block is the falling block
+      	    clearInterval(drop);
+      	    dropWaitTime = 500;
+      	    drop = setInterval(game.fall, dropWaitTime); //these few lines are just to slow down the movement after fast forwarding
         	textureIndex = body.texturePalette.push(block.color);// palette array - -1 means index of last value - returns final length
           	for(let y = 0; y < block.map.length; y++) {
                   let row = block.map[y]; 
@@ -604,8 +616,8 @@ function run(){
 	
 	
 	requestAnimationFrame(game.frame);
-	const dropWaitTime = 500;
-	const drop = setInterval(game.fall, dropWaitTime);
+	var dropWaitTime = 500;
+	var drop = setInterval(game.fall, dropWaitTime);
 }
 
 window.onload = run;
