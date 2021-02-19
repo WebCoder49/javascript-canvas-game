@@ -7,292 +7,75 @@ function run(){
         "##",
         "#"].join("\n");
     console.log(map);*/
-    
-    const shapes = [
-        // lines
-        // -----
-        {
-            // long line
 
-            map: [
-                "  #",
-                "  #",
-                "  #",
-                "  #",
-                "  #",
-            ].join("\n"),
-            size: 5,
-            color: '#d8eb34',
-        },
+	const shapes = [
         {
-            // medium line
-
             map: [
                 " #",
                 " #",
                 " #",
-                " #",
+                " #"
             ].join("\n"),
             size: 4,
-            color: '#9ceb34',
+            color: "cyan",
         },
         {
-            // short line
-
-            map: [
-                " #",
-                " #",
-                " #",
-            ].join("\n"),
-            size: 3,
-            color: '#66ff00',
-        },
-        {
-            // 2-line
-
             map: [
                 "#",
-                "#",
-            ].join("\n"),
-            size: 2,
-            color: '#00ff80',
-        },
-        {
-            // single block
-
-            map: [
-                "#",
-            ].join("\n"),
-            size: 1,
-            color: '#1fffce',
-        },
-        // letters
-        // -------
-        {
-            // C shape
-
-            map: [
-                "##",
-                "#",
-                "##",
-            ].join("\n"),
-            size: 3,
-            color: '#70a2ff',
-        },
-        {
-            // L shape
-
-            map: [
-                "#",
-                "#",
-                "##",
-            ].join("\n"),
-            size: 3,
-            color: '#696eff',
-        },
-        {
-            // U shape
-
-            map: [
-                "# #",
-                "# #",
                 "###",
-            ].join("\n"),
-            size: 3,
-            color: '#8c66ff',
-        },
-        {
-            // O shape
-
-            map: [
-                "###",
-                "# #",
-                "###",
-            ].join("\n"),
-            size: 3,
-            color: '#e866ff',
-        },
-        {
-            // H shape
-
-            map: [
-                "# #",
-                "###",
-                "# #",
-            ].join("\n"),
-            size: 3,
-            color: '#ff66bf',
-        },
-        {
-            // X shape
-
-            map: [
-                "# #",
-                " #",
-                "# #",
-            ].join("\n"),
-            size: 3,
-            color: '#ff5778',
-        },
-        // other
-        // -----
-        {
-            // + shape
-
-            map: [
-                " #",
-                "###",
-                " #",
-            ].join("\n"),
-            size: 3,
-            color: '#ff5757',
-        },
-        // triangles
-        // ---------
-        {
-            // 2-triangle
-
-            map: [
-                "##",
-                "#"
-            ].join("\n"),
-            size: 2,
-            color: '#ff8f57',
-        },
-        {
-            // 3-triangle
-
-            map: [
-                "###",
-                "##",
-                "#"
-            ].join("\n"),
-            size: 3,
-            color: '#ffb957',
-        },
-        {
-            // 4-triangle
-
-            map: [
-                "####",
-                "###",
-                "##",
-                "#"
-            ].join("\n"),
+                ""
+		    ].join("\n"),
             size: 4,
-            color: '#fff157',
+            color: "#337FFF",
         },
-        // rectangles
-        // ----------
         {
-            // 2x2
-
+            map: [
+                "  #",
+                "###",
+                ""
+            ].join("\n"),
+            size: 3,
+            color: "orange",
+        },
+        {
             map: [
                 "##",
                 "##"
             ].join("\n"),
             size: 2,
-            color: '#e5ff4f',
+            color: "yellow",
         },
         {
-            // 2x3
-
             map: [
+                " ##",
                 "##",
-                "##",
-                "##"
+                ""
             ].join("\n"),
             size: 3,
-            color: '#b1ff4a',
+            color: "#33FFB0"
         },
         {
-            // 2x4
-
             map: [
-                " ##",
-                " ##",
-                " ##",
-                " ##"
-            ].join("\n"),
-            size: 4,
-            color: '#b0ff47',
-        },
-        {
-            // 3x3
-
-            map: [
+                " #",
                 "###",
-                "###",
-                "###"
+                ""
             ].join("\n"),
             size: 3,
-            color: '#82ff4d',
+            color: "#FF0080",
         },
         {
-            // 3x4
-
             map: [
-                "###",
-                "###",
-                "###",
-                "###"
+                "##",
+                " ##",
+                ""
             ].join("\n"),
-            size: 4,
-            color: '#47ff47',
-        },
-        {
-            // 4x4
-
-            map: [
-                "####",
-                "####",
-                "####",
-                "####"
-            ].join("\n"),
-            size: 4,
-            color: '#47ff72',
-        },
-    ];
-	const shapeMaps = [
-		[
-			"#",
-			"#",
-			"#",
-			"#"
-		].join("\n"),
-		[
-			"#",
-			"###",
-			""
-		].join("\n"),
-		[
-			"  #",
-			"###",
-			""
-		].join("\n"),
-		[
-			"##",
-			"##"
-		].join("\n"),
-		[
-			" ##",
-			"##",
-			""
-		].join("\n"),
-		[
-			" #",
-			"###",
-			""
-		].join("\n"),
-		[
-			"##",
-			" ##",
-			""
-		].join("\n")
+            size: 3,
+            color: "red",
+        }
 	];
-	const shapeSizes = [, 3, 3, 2, 3, 3, 3];
+	//const shapeSizes = [4, 3, 3, 2, 3, 3, 3];
 
-	const shapeColours = ['cyan', 'blue', 'orange', 'yellow', 'green', 'magenta', 'red']
+	//const shapeColours = ['cyan', 'skyblue', 'orange', 'yellow', 'green', 'magenta', 'red']
 
     game = { // Main game mechanics, including timing
         secondCount: 0,
@@ -311,8 +94,7 @@ function run(){
             ctx.font = "20px Audiowide";
             ctx.textAlign = "right";
             ctx.fillText("Seconds: " + Math.trunc(game.secondCount), game.c.width - 10, 60, game.c.width/2 - 20);
-            ctx.fillStyle = "gold";
-			ctx.fillText("Score: " + game.score, game.c.width - 10, 90, game.c.width/2 - 20)
+			ctx.fillText("Score :" + game.score, game.c.width - 10, 90, game.c.width/2 - 20)
 		
 			//carry out collision and append newmap to current map or append map to body and create new falling block
 
@@ -338,14 +120,18 @@ function run(){
 		fall: function(){
 			fBlock = blocks.fallingBlock.current;
 			fBlock.newY += 1;
+			game.secondCount += dropWaitTime / 1000;
 			if (game.check(fBlock.map, fBlock, fBlock.newY, fBlock.x) == false){
 				fBlock.y = fBlock.newY;
 			} else{
 				fBlock.newY = fBlock.y;
 				body.addToBody(fBlock);
 				game.newBlock();
+				game.score += 1;
+				clearInterval(drop);
+				dropWaitTime = 500;
+				drop = setInterval(game.fall, dropWaitTime)
 			}
-			game.secondCount += dropWaitTime / 1000;
 		},
 
 		check: function(blockMap, block, blockY, blockX){//takes body and block map and allows to choose whether we test the new y and x values of the falling block if we so choose
@@ -358,7 +144,7 @@ function run(){
 							if (body.map[y + blockY][x + blockX] != 0){
 								return true;
 							}
-						}catch{
+						}catch{ // catches the error
 							if (y + (blockY) >= blocks.gridH){
 								return true;
 							}else if (x + (blockX) >= blocks.gridW){
@@ -384,7 +170,6 @@ function run(){
 			let x = Math.floor(Math.random() * (7));
 			let y = -size
 			blocks.fallingBlock.current = new blocks.fallingBlock.New(x, y, size, map, color);
-			game.score += 1;
 		},
 	
 		keyPressed: function(e) { // e is event
@@ -396,36 +181,34 @@ function run(){
                 blocks.fallingBlock.current.move(true); //move the block to the left
             } else if (e.keyCode === 68) { //d pressed
                 blocks.fallingBlock.current.move(false); //move the block to the right
-            } else if (e.keyCode === 83) { // s pressed
-                game.dropToBottom(); //drops the block to the bottom
-            }
+            } else if (e.keyCode === 83) {
+				game.changeInterval();
+			}
         },
 		clearRow: function(map){ //multiply points by 2 if a row is fully filled
-			for (let y = 0; y < 15; y++){//gets the map of the body and scans each row
+			for (let y = 0; y < map.length; y++){//gets the map of the body and scans each row
 				let row = map[y];
 				let isAllEmpty = false;
 				isAllEmpty = row.every(item => item !== 0);
 				if (isAllEmpty == true){
-					console.log("not empty");
 					for(let z = 0; z < row.length;z++){ //destroys the row and sets it all to 0
 						row[z] = 0;
 					};
-					game.score = game.score * 2;
+					game.score += blocks.gridW;
 					for (let v = y; v > 0; v--){
-						console.log(map[v]);
 						map[v] = map[v-1];
 					}
 				}
 			}
 
 		},
-        dropToBottom: function() { //drops the block to the floor through increasing the fps
-            if (dropWaitTime == 500) {
-                clearInterval(drop);
-                dropWaitTime = 50; //decreases the interval to make more fps
-                drop = setInterval(game.fall, dropWaitTime)
-            }
-        }
+		changeInterval: function(){
+			if (dropWaitTime == 500){
+				clearInterval(drop);
+				dropWaitTime = 100;
+				drop = setInterval(game.fall, dropWaitTime)
+			}
+		}
     };
 	window.addEventListener("keydown", game.keyPressed);
 
@@ -485,7 +268,10 @@ function run(){
                 }
             
                 this.rotate = function(clockwise) { // clockwise parameter is a boolean value
-					let prevMap = this.map; // previous map 
+                    let prevMap = [];
+                    this.map.forEach(function(item) { // for every item in map
+                        prevMap.push([...item]); // append copy
+                    });
 					let newMap = [];
 
                     /* Create blank array of falses */
@@ -524,10 +310,9 @@ function run(){
                         }
             
                     }
-
-					if (game.check(newMap, this, this.y, this.x) == false){
+					
+					if (game.check([...newMap], this, this.y, this.x) == false){
 						this.map = newMap;
-					} else {
 					}
                 }
 
@@ -564,9 +349,6 @@ function run(){
             }
         },
     	addToBody: function(block) { // block is the falling block
-      	    clearInterval(drop);
-      	    dropWaitTime = 500;
-      	    drop = setInterval(game.fall, dropWaitTime); //these few lines are just to slow down the movement after fast forwarding
         	textureIndex = body.texturePalette.push(block.color);// palette array - -1 means index of last value - returns final length
           	for(let y = 0; y < block.map.length; y++) {
                   let row = block.map[y]; 
