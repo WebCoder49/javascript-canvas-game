@@ -1,5 +1,7 @@
 # javascript-canvas-game
 
+## [Launch Game](https://webcoder49.github.io/javascript-canvas-game/game/)
+
 Still in development
 
 * [GitHub Pages Link](https://webcoder49.github.io/javascript-canvas-game/)
