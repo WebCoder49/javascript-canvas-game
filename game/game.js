@@ -8,6 +8,26 @@ function run(){
         "#"].join("\n");
     console.log(map);*/
 
+    var newSound = function(src, vol) { // create new sound
+        let sound = new Audio(src);
+        sound.volume = vol;
+        sound.stop = function() { // stop and reset sound
+            sound.pause();
+            sound.currentTime = 0;
+        };
+        return sound;
+    }
+
+    const sounds = {
+        theme: newSound("media/music/themetune.mp3", 0.1), // source, volume
+        clockwise: newSound("media/music/clockwise.mp3", 0.1), // source, volume
+        anticlockwise: newSound("media/music/anticlockwise.mp3", 0.1), // source, volume
+        accelerate: newSound("media/music/accelerate.mp3", 0.1), // source, volume
+        hit: newSound("media/music/hit.mp3", 0.1), // source, volume
+    };
+
+    sounds.theme.play(); // first time
+
 	const shapes = [
         {
             map: [
@@ -88,6 +108,11 @@ function run(){
             ctx: document.querySelector("#gameCanvas").getContext("2d"),
         },
 		frame: function() {
+
+            if(sounds.theme.ended) {
+                sounds.theme.play(); // loop
+            }
+
 			ctx = game.c.ctx;
 			ctx.clearRect(0, 0, game.c.width, game.c.height);
             ctx.fillStyle = "lightblue";
@@ -181,7 +206,8 @@ function run(){
                 blocks.fallingBlock.current.move(true); //move the block to the left
             } else if (e.keyCode === 68) { //d pressed
                 blocks.fallingBlock.current.move(false); //move the block to the right
-            } else if (e.keyCode === 83) {
+            } else if (e.keyCode === 83) { // s key pressed
+                sounds.accelerate.play(); // accelerate sound
 				game.changeInterval();
 			}
         },
@@ -286,6 +312,8 @@ function run(){
                     if(!clockwise) {
                         // not clockwise - Anti-clockwise - reverse rows **before** transpose
 
+                        sounds.anticlockwise.play();
+
                         for(let y = 0; y < prevMap.length; y++) {
                             while(prevMap[y].length < this.size) {
                                 prevMap[y].push(false); // Make all arrays same size so rotating works
@@ -305,6 +333,9 @@ function run(){
 
                     if(clockwise) {
                         /* Clockwise - reverse rows **after** transpose */
+
+                        sounds.clockwise.play();
+
                         for(let y = 0; y < newMap.length; y++) {
                             newMap[y].reverse(); // reverse rows
                         }
@@ -349,6 +380,8 @@ function run(){
             }
         },
     	addToBody: function(block) { // block is the falling block
+            sounds.accelerate.stop(); // stop accelerate sound
+            sounds.hit.play(); // hit sound
         	textureIndex = body.texturePalette.push(block.color);// palette array - -1 means index of last value - returns final length
           	for(let y = 0; y < block.map.length; y++) {
                   let row = block.map[y]; 
